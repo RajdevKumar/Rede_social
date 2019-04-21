@@ -8,4 +8,8 @@ def index(request):
         "title":"Pagina-Inicial"
     }
 
-    return render(request,'index.html',context)
+    if not request.user.is_authenticated:
+
+        return render(request,'index.html',context)
+    else:
+        return render(request,'logged_index.html',context)
