@@ -1,5 +1,5 @@
 # Rede_social
 
 Conta superUser criada:
-ID : rajdevkumar
+ID : rajdevkumar \n
 senha : 123
