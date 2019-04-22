@@ -23,3 +23,6 @@ u = User.objects.get(username="rajdevkumar")
 u.profile.Email = email
 #
 u.save()
+
+## Dispositivos
+o Foco no desenvolvimento desta aplicação foi para aparelhos considerados computadores

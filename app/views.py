@@ -16,7 +16,13 @@ def index(request):
         user_form = UserForm(request.POST or None)
         profile_form = ProfileForm(request.POST or None)
         if user_form.is_valid() and profile_form.is_valid():
-            print(request.POST.get('username'))
+            #print(request.POST.get('username'))
+            # Cria Usuario
+            Username = user_form.cleaned_data["username"]
+            password = user_form.cleaned_data["password"]
+            pn = user_form.cleaned_data["first_name"]
+            ln = user_form.cleaned_data["last_name"]
+            gender = profile_form.cleaned_data["genero"]
         else:
             print("ERRO")
 

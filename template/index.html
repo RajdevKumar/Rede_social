@@ -21,11 +21,23 @@
                 <!--            Register        -->
             <div class="col-sm-6 col-2 h-100 bg-primary text-white py-2 d-flex align-items-center justify-content-center fixed-top" id="left">
                    <button onclick="Reg()" class="btn btn-danger w-100 register-btn">Registrar</button>
-                   <div>
-                       <form action="" method="POST" class="register-form">{% csrf_token %}
+                   <div class="register-form">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                        <img onclick="Revreg()" src="{% static 'img/undo-512.png' %}" width="25px" height="30px" style="cursor:pointer;" />
+                                </div>
+                                <div class="col-sm-10">
+                              <h1 class="text-center w-100">Registrar</h1>
+                              </div>
+                        <br/>
+                    </div>
+                </div>
+
+                       <form action="" method="POST" class="">{% csrf_token %}
                             {{ user_form.as_p }}
                             {{ profile_form.as_p }}
-                            <input type="submit" value="Submeter">
+                            <input type="submit" class="btn btn-danger w-100" value="Registrar">
                        </form>
                     </div>
             </div>
@@ -37,6 +49,7 @@
             <div class="col offset-2 offset-sm-6 py-2 bg-light">
                     <button onclick="log()" class="btn btn-info w-100 login-btn">Login</button>
                     <div>
+
                             <form action="" method="POST" class="login-form text-center">{% csrf_token %}
                         
                                  <input class="btn btn-info" type="submit" value="Submeter">
@@ -55,6 +68,12 @@
         document.querySelector(".register-btn").style.display="none";
         document.querySelector(".register-form").style.display="block";
     }
+
+    function Revreg(){
+        document.querySelector(".register-btn").style.display="block";
+        document.querySelector(".register-form").style.display="none";
+    }
+
 
     function log(){
 
