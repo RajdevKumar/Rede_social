@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from app.models import Profile
+from .forms import UserForm, ProfileForm
 
 # Create your views here.
 
@@ -12,6 +13,15 @@ def index(request):
 
     if not request.user.is_authenticated:
 
+        user_form = UserForm(request.POST or None)
+        profile_form = ProfileForm(request.POST or None)
+        if user_form.is_valid() and profile_form.is_valid():
+            print(request.POST.get('username'))
+        else:
+            print("ERRO")
+
+        context["user_form"] = user_form
+        context["profile_form"] = profile_form
         return render(request,'index.html',context)
     else:
         context["title"] = "logged",

@@ -18,24 +18,52 @@
         <div class="row h-100">
 
                 <!--            Left Side        -->
-
+                <!--            Register        -->
             <div class="col-sm-6 col-2 h-100 bg-primary text-white py-2 d-flex align-items-center justify-content-center fixed-top" id="left">
-                <ul>
-                    <li>ONE</li>
-                    <li>TWO</li>
-                    <li>THREE</li>
-                </ul>
+                   <button onclick="Reg()" class="btn btn-danger w-100 register-btn">Registrar</button>
+                   <div>
+                       <form action="" method="POST" class="register-form">{% csrf_token %}
+                            {{ user_form.as_p }}
+                            {{ profile_form.as_p }}
+                            <input type="submit" value="Submeter">
+                       </form>
+                    </div>
             </div>
+                <!--            End Register Side     -->
 
               <!--               Right Side        -->
+              <!--               Login             -->
             <div class="col-sm-6 invisible col-2"><!--hidden spacer--></div>
             <div class="col offset-2 offset-sm-6 py-2 bg-light">
-                <h4 class="text-center">I Scroll</h4>
-    
+                    <button onclick="log()" class="btn btn-info w-100 login-btn">Login</button>
+                    <div>
+                            <form action="" method="POST" class="login-form text-center">{% csrf_token %}
+                        
+                                 <input class="btn btn-info" type="submit" value="Submeter">
+                            </form>
+                         </div>
+                 </div>
+                 <!--        End Login Side                  -->
             </div>
         </div>
-    </div>
 
     
+
+    <script>
+    
+    function Reg(){
+        document.querySelector(".register-btn").style.display="none";
+        document.querySelector(".register-form").style.display="block";
+    }
+
+    function log(){
+
+        document.querySelector(".login-btn").style.display="none";
+        document.querySelector(".login-form").style.display="block";
+
+
+    }
+    
+    </script>
 </body>
 </html>
