@@ -8,14 +8,14 @@ def index(request):
 
     context = {
         "title":"Pagina-Inicial",
-        "user": User.objects.get(username=request.user.username)
     }
 
     if not request.user.is_authenticated:
 
         return render(request,'index.html',context)
     else:
-        context["title"] = "logged";
+        context["title"] = "logged",
+        context["user"] =  User.objects.get(username=request.user.username)
     
 
         return render(request,'logged_index.html',context)
